@@ -1,9 +1,15 @@
-% clear
-% clc
-% tic
-% 
-% clear all
-% close all
+
+
+#######################################################
+###       Random fitness on a circle(Death-Birth)   ###
+###   University of Waterloo, Waterloo,Canada       ###
+###            copyright@AliMahdipour               ###
+#######################################################
+
+clear
+clc
+clear all
+close all
 
 tmax=1000;
 iteration=10000;
@@ -32,7 +38,7 @@ for i=1:1:iteration
         x=sum(v);
         
         for t=1:1:tmax-1
-            [XX,vv]=CircleDBRandFitness(x,N,v);
+            [XX,vv]=fit.circle.func(x,N,v);
             
             var1(i,t+1)= XX;
             
@@ -51,13 +57,8 @@ for i=1:1:iteration
         
 end 
    
-
-% (1-(uu/(1-uu)))/(1-(uu/(1-uu))^N)
-
 var(1,:) = (1/iteration)*sum(var1,1);
-
 est=var(1,tmax)/N
-
 % r=0.9231;
 % analytic=(1-1/r)/(1-(1/r)^N)
 
@@ -65,6 +66,5 @@ est=var(1,tmax)/N
 
 figure(1) 
 plot(var,'c','LineWidth',2);
-xlabel('Time'); ylabel('Number of tumor Cells-Circle mu=1,N=11')
+xlabel('Time'); ylabel('Number of tumor Cells-Circle mu=1, N=11')
 
-toc

@@ -1,52 +1,32 @@
-function [XX,vv]=CircleFitness(x,N,v)
+
+#######################################################
+###      Random fitness function on circle model    ###
+###    University of Waterloo, Waterloo,Canada      ###
+###            copyright@AliMahdipour               ###
+#######################################################
+
+function [XX,vv]=fit.circle.func(x,N,v)
 
 % The Line model of Moran model in the case of Birth-Death
 % We assume that there are N connected cells arranged in a line
 % Assume that we have a new mutatnt with fitness/death rate $r/d$ compare
 % to 1 of host individuals
 
-
 h=0.1;  % 2h: the standard deviation
 mu=1.5;
-
 ra=1;
 rb=2*h*rand+(mu-h);
 da=1;
 db=1;
 r=rb/ra;
 d=db/da;
-
-% W = zeros(N,N);
-
-% W(1,2)=1;
-% W(N,N-1)=1;
-%  for i=2:N-1
-%      W(i,i-1) = 1/2;
-%      W(i,i+1)=1/2;
-%  end
-
 alpha_a= (N-x)/(r*x+(N-x));
-% alpha_b(x)= (r*x)/(r*x+(N-x));
-% beta_a = (N-x)/(d*x+(N-x));
-% beta_b(x) = (d*x)/(d*x+(N-x));
-
-
 rng;
 gamma=rand(1,2);
 alpha = gamma(1,1);
 beta = gamma(1,2);
 n = randi([1 2],1,1);
 
-% v(rr)=1;
-
-% while(t < tt + 1)
-
-%     pp(x) = (r/(r*x+(N-x)))*(1/(d*x+(N-x)));
-%     qq(x) = (1/(r*x+(N-x)))*(d/(d*x+(N-x)));
-%     rng;
-%     if(0>=sum(v) && sum(v)>= N)
-%         break;
-%     end
 idx1 = find(v);
 idx2 = find(v ==0 );
 
@@ -125,59 +105,10 @@ elseif(v(s)==0)
     
 end
 
-
-
-
 vv = v ;
 XX = sum(v);
 
 
 
 end
-
-
-%     end
-
-%     x = sum(v);
-%     xvec(1,nn)=sum(v);
-%     tvec(1,nn)=t;
-
-
-%     t=t+1;
-%     nn=nn+1;
-
-%
-%     figure(1)
-%  for t=1:Tmax
-%   spy(X(t,:),'rs',30 )
-%   set(get(gca,'Children'),'MarkerFaceColor','g')
-%   M(t) = getframe;
-%   spy(u,':bs', 40)
-%  end
-%   numtimes=1;
-%   fps=10;
-%   movie(M,numtimes,fps)
-%
-% hold on
-%
-% figure(1)
-% spy(v,'rs',30 )
-% set(get(gca,'Children'),'MarkerFaceColor','g')
-% spy(u,':bs', 40)
-% eval(touchup)
-
-% figure(2)
-% h = bar3(v,.8);
-% a = gca;
-% set(a,'CameraPosition',[mean(xlim) mean(ylim) 4],...
-%       'CameraUpVector',[0 -1 5], ...
-%       'Box','on', ...
-%       'YDir','reverse', ...
-%       'ZLim',[1e-6 1])
-% eval(touchup)
-% xlabel('Time'); ylabel('Number of Stem Cells')
-%plot(v,  '--gs','LineWidth',2,'MarkerSize',10,'MarkerEdgeColor','b','MarkerFaceColor',[0.5,0.5,0.5]));
-
-
-% end
 

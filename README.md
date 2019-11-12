@@ -1,4 +1,6 @@
-# Genotype by random environmental interactions gives an advantage to minor populations
+# Effect of random environment on selection pressure of minor populations
+
+_Genotype by random environmental interactions gives an advantage to non-favored minor sub-populations (`Minority Rule')_
 
 ## Introduction
 
@@ -20,7 +22,7 @@ largest when the fitness values of the mutants and wild types are anti-correlate
 results for both a spatial ring geometry of cells (such as that of a colonic crypt), a 2D lattice and a mass-action 
 (complete graph) arrangement.
 
-![Fig1](fig1.png)
+![image](fig1.png)
 
 ## Achievements
 The results of our model have far reaching consequences: 

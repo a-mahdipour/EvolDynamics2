@@ -1,4 +1,11 @@
-function [XX,vv]=lineRandFitness(x,N,v)
+
+#######################################################
+###      Random fitness function in line model      ###
+###     University of Waterloo, Waterloo,Canada     ###
+###            copyright@AliMahdipour               ###
+#######################################################
+
+function [XX,vv]=fit.line.func.m(x,N,v)
 
 % The Line model of Moran model in the case of Birth-Death
 % We assume that there are N connected cells arranged in a line
@@ -14,28 +21,7 @@ da=1;
 db=1;
 r=rb/ra;
 d=db/da;
-
-% t=tt;
-
-% nn=1;
-
-% u = zeros(1,N);
-
-% xvec=zeros(1,tmax);
-% tvec=zeros(1,tmax);
-
-% W = zeros(N,N);
-
-
-% W(1,2)=1;
-% W(N,N-1)=1;
-%  for i=2:N-1
-%      W(i,i-1) = 1/2;
-%      W(i,i+1)=1/2;
-%  end
-
 alpha_a = (N-x)/(r*x+(N-x));
-% alpha_b= (r*x)/(r*x+(N-x));
 
 idx1 = find(v);
 idx2 = find(v ==0 );
@@ -74,15 +60,10 @@ if( 1 < s && s < N)
         if(x1 < x2)
             if( beta <= 1/(d+1))
                 v(s-1)=v(s);
-                %             elseif( 1/(d+1) < beta )
-                %                 v(s+1)=v(s);
             end
         elseif(x2 < x1)
             if( beta <= 1/(d+1))
                 v(s+1)=v(s);
-                %             elseif( 1/(d+1) < beta)
-                %                 v(s-1)=v(s);
-                
             end
             
             
@@ -125,3 +106,4 @@ XX = sum(v);
 
 
 end
+
